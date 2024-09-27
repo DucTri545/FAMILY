@@ -9,6 +9,17 @@ body {
 
 h1 {
     color: #ff66b2; /* Màu tiêu đề */
+    font-size: 2.5em; /* Kích thước tiêu đề chính */
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #ff66b2; /* Màu cho tiêu đề phụ */
+    margin: 15px 0;
+}
+
+h3 {
+    color: #ff3385; /* Màu cho tiêu đề nhỏ hơn */
 }
 
 section {
@@ -26,10 +37,12 @@ button {
     border-radius: 5px;
     padding: 10px 15px;
     cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 button:hover {
     background-color: #ff3385; /* Màu nút khi hover */
+    transform: scale(1.05); /* Tăng kích thước nút khi hover */
 }
 
 textarea {
@@ -55,4 +68,14 @@ ul {
 img {
     width: 100px; /* Kích thước hình ảnh */
     margin: 10px;
+    transition: transform 0.3s;
+}
+
+img:hover {
+    transform: scale(1.1); /* Phóng to hình ảnh khi hover */
+}
+
+textarea:focus, input[type="text"]:focus {
+    border-color: #ff66b2; /* Màu viền khi focus */
+    outline: none; /* Bỏ outline mặc định */
 }
