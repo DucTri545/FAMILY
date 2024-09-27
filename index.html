@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Web Cặp Đôi</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Trang Web Cặp Đôi</h1>
+    </header>
+    
+    <main>
+        <section>
+            <h2>Nhấn để chọn hoạt động</h2>
+            <button id="randomActivityBtn">Chọn hoạt động</button>
+            <div id="activityResult"></div>
+            <h3>Lịch sử chọn hoạt động:</h3>
+            <ul id="activityHistory"></ul>
+        </section>
+
+        <section>
+            <h2>Điều mình mong muốn thay đổi</h2>
+            <textarea id="wishChange" placeholder="Nhập điều mong muốn..."></textarea>
+            <button id="saveWishChangeBtn">Lưu điều mong muốn</button>
+            <div id="savedWishChange"></div>
+        </section>
+
+        <section>
+            <h2>Nhật ký chung</h2>
+            <textarea id="diaryEntry" placeholder="Viết nỗi lòng của bạn..."></textarea>
+            <button id="saveDiaryBtn">Lưu nhật ký</button>
+            <div id="diaryHistory"></div>
+        </section>
+
+        <section>
+            <h2>Danh sách những thứ em thích</h2>
+            <input type="text" id="favoriteItem" placeholder="Nhập tên thứ thích...">
+            <button id="addFavoriteBtn">Thêm vào danh sách</button>
+            <ul id="favoriteList"></ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>Bản quyền © 2024</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
