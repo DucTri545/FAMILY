@@ -31,6 +31,14 @@ main {
     padding: 20px;
 }
 
+.tab {
+    display: none; /* Ẩn tất cả các tab ban đầu */
+}
+
+.tab.active {
+    display: block; /* Hiển thị tab hiện tại */
+}
+
 section {
     margin-bottom: 30px;
     padding: 15px;
