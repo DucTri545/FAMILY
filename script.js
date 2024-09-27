@@ -1,6 +1,13 @@
 const messagesList = document.getElementById('messagesList');
 const randomIdeas = ["Đi xem phim", "Đi shopping", "Cắm trại", "Tham quan bảo tàng", "Nấu ăn cùng nhau"];
 
+function showTab(tabId) {
+    const tabs = document.querySelectorAll('.tab');
+    tabs.forEach(tab => {
+        tab.style.display = tab.id === tabId ? 'block' : 'none';
+    });
+}
+
 function sendMessage() {
     const messageInput = document.getElementById('messageInput');
     const message = messageInput.value;
