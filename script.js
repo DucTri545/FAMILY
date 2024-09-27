@@ -16,7 +16,7 @@ const activities = [
     "Em là công chúa của anh",
 ];
 
-const PASSWORD = "anhyeuem"; // Đặt mật khẩu ở đây
+const PASSWORD = "anhyeuem"; // Mật khẩu để xác nhận
 
 document.getElementById("randomActivityBtn").addEventListener("click", function() {
     const randomActivity = activities[Math.floor(Math.random() * activities.length)];
@@ -122,7 +122,7 @@ document.getElementById("clearActivityHistoryBtn").addEventListener("click", fun
     }
 });
 
-// Các nút xóa khác (có thể thêm tương tự)
+// Các nút xóa khác
 document.getElementById("clearWishChangeBtn").addEventListener("click", function() {
     const password = prompt("Nhập mật khẩu để xóa điều mong muốn:");
     if (password === PASSWORD) {
