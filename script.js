@@ -1,12 +1,18 @@
 const messagesList = document.getElementById('messagesList');
 const randomIdeas = ["Đi xem phim", "Đi shopping", "Cắm trại", "Tham quan bảo tàng", "Nấu ăn cùng nhau"];
 
-function showTab(tabId) {
-    const tabs = document.querySelectorAll('.tab');
-    tabs.forEach(tab => {
-        tab.style.display = tab.id === tabId ? 'block' : 'none';
+// Hàm để hiển thị tin nhắn từ localStorage
+function loadMessages() {
+    const messages = JSON.parse(localStorage.getItem('messages')) || [];
+    messages.forEach(message => {
+        const messageElement = document.createElement('p');
+        messageElement.textContent = message;
+        messagesList.appendChild(messageElement);
     });
 }
+
+// Gọi hàm loadMessages khi trang được tải
+window.onload = loadMessages;
 
 function sendMessage() {
     const messageInput = document.getElementById('messageInput');
@@ -15,6 +21,12 @@ function sendMessage() {
         const messageElement = document.createElement('p');
         messageElement.textContent = message;
         messagesList.appendChild(messageElement);
+
+        // Lưu tin nhắn vào localStorage
+        const messages = JSON.parse(localStorage.getItem('messages')) || [];
+        messages.push(message);
+        localStorage.setItem('messages', JSON.stringify(messages));
+
         messageInput.value = '';
     }
 }
