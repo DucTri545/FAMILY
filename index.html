@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang web cho cặp đôi</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Trang web cho các cặp đôi</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#messages">Nơi tâm sự</a></li>
+            <li><a href="#random-idea">Mục chọn ngẫu nhiên</a></li>
+            <li><a href="#image-sharing">Chia sẻ hình ảnh</a></li>
+            <li><a href="#feelings">Điều làm bạn buồn</a></li>
+            <li><a href="#changes">Mong muốn thay đổi</a></li>
+            <li><a href="#dates">Lịch đi chơi & kỷ niệm</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="messages">
+            <h2>Nơi tâm sự</h2>
+            <textarea id="messageInput" placeholder="Nhập lời nhắn của bạn"></textarea>
+            <button onclick="sendMessage()">Gửi</button>
+            <div id="messagesList"></div>
+        </section>
+
+        <section id="random-idea">
+            <h2>Mục chọn ngẫu nhiên</h2>
+            <button onclick="getRandomIdea()">Chọn ý tưởng</button>
+            <p id="randomOutput"></p>
+        </section>
+
+        <section id="image-sharing">
+            <h2>Chia sẻ hình ảnh</h2>
+            <input type="file" id="imageInput" accept="image/*">
+            <div id="imagePreview"></div>
+        </section>
+
+        <section id="feelings">
+            <h2>Điều làm bạn buồn</h2>
+            <textarea id="feelingsInput" placeholder="Nhập điều làm bạn buồn"></textarea>
+            <button onclick="sendFeelings()">Gửi</button>
+        </section>
+
+        <section id="changes">
+            <h2>Mong muốn thay đổi</h2>
+            <textarea id="changesInput" placeholder="Nhập điều bạn mong muốn thay đổi"></textarea>
+            <button onclick="sendChanges()">Gửi</button>
+        </section>
+
+        <section id="dates">
+            <h2>Lịch đi chơi & kỷ niệm</h2>
+            <textarea id="datesInput" placeholder="Nhập lịch đi chơi hoặc kỷ niệm"></textarea>
+            <button onclick="sendDate()">Gửi</button>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Couple Website</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
