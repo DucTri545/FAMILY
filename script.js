@@ -16,7 +16,7 @@ const activities = [
     "Em là công chúa của anh",
 ];
 
-const PASSWORD = "conchoti"; // Đặt mật khẩu ở đây
+const PASSWORD = "anhyeuem"; // Đặt mật khẩu ở đây
 
 document.getElementById("randomActivityBtn").addEventListener("click", function() {
     const randomActivity = activities[Math.floor(Math.random() * activities.length)];
@@ -106,6 +106,52 @@ function updateFavoriteList() {
     favoriteList.forEach(item => {
         const li = document.createElement("li");
         li.textContent = item;
-        favoriteListElement.appendChild(li); // Đã sửa phần này
+        favoriteListElement.appendChild(li);
     });
 }
+
+// Xóa lịch sử hoạt động với mật khẩu
+document.getElementById("clearActivityHistoryBtn").addEventListener("click", function() {
+    const password = prompt("Nhập mật khẩu để xóa lịch sử hoạt động:");
+    if (password === PASSWORD) {
+        localStorage.removeItem("activityHistory");
+        updateActivityHistory();
+        alert("Đã xóa lịch sử hoạt động.");
+    } else {
+        alert("Mật khẩu không đúng.");
+    }
+});
+
+// Các nút xóa khác (có thể thêm tương tự)
+document.getElementById("clearWishChangeBtn").addEventListener("click", function() {
+    const password = prompt("Nhập mật khẩu để xóa điều mong muốn:");
+    if (password === PASSWORD) {
+        localStorage.removeItem("wishChange");
+        document.getElementById("savedWishChange").textContent = "";
+        alert("Đã xóa điều mong muốn.");
+    } else {
+        alert("Mật khẩu không đúng.");
+    }
+});
+
+document.getElementById("clearDiaryHistoryBtn").addEventListener("click", function() {
+    const password = prompt("Nhập mật khẩu để xóa nhật ký:");
+    if (password === PASSWORD) {
+        localStorage.removeItem("diaryHistory");
+        updateDiaryHistory();
+        alert("Đã xóa nhật ký.");
+    } else {
+        alert("Mật khẩu không đúng.");
+    }
+});
+
+document.getElementById("clearFavoriteListBtn").addEventListener("click", function() {
+    const password = prompt("Nhập mật khẩu để xóa danh sách yêu thích:");
+    if (password === PASSWORD) {
+        localStorage.removeItem("favoriteList");
+        updateFavoriteList();
+        alert("Đã xóa danh sách yêu thích.");
+    } else {
+        alert("Mật khẩu không đúng.");
+    }
+});
