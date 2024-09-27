@@ -16,12 +16,17 @@ const activities = [
     "Em là công chúa của anh",
 ];
 
+const PASSWORD = "conchoti"; // Đặt mật khẩu ở đây
+
 document.getElementById("randomActivityBtn").addEventListener("click", function() {
     const randomActivity = activities[Math.floor(Math.random() * activities.length)];
+    const timestamp = new Date().toLocaleString();
+    const entry = `${randomActivity} - ${timestamp}`;
+    
     document.getElementById("activityResult").textContent = randomActivity;
     
     let history = JSON.parse(localStorage.getItem("activityHistory")) || [];
-    history.push(randomActivity);
+    history.push(entry);
     localStorage.setItem("activityHistory", JSON.stringify(history));
     updateActivityHistory();
 });
@@ -40,9 +45,21 @@ updateActivityHistory();
 
 document.getElementById("saveWishChangeBtn").addEventListener("click", function() {
     const wish = document.getElementById("wishChange").value;
-    localStorage.setItem("wishChange", wish);
-    document.getElementById("savedWishChange").textContent = "Đã lưu: " + wish;
+    if (wish) {
+        const timestamp = new Date().toLocaleString();
+        const entry = `${wish} - ${timestamp}`;
+        localStorage.setItem("wishChange", entry);
+        document.getElementById("savedWishChange").textContent = "Đã lưu: " + entry;
+    }
 });
+
+function displaySavedWish() {
+    const savedWish = localStorage.getItem("wishChange");
+    if (savedWish) {
+        document.getElementById("savedWishChange").textContent = "Đã lưu: " + savedWish;
+    }
+}
+displaySavedWish();
 
 document.getElementById("diaryEntry").addEventListener("input", function() {
     const diaryEntry = document.getElementById("diaryEntry").value;
@@ -51,8 +68,10 @@ document.getElementById("diaryEntry").addEventListener("input", function() {
 
 document.getElementById("saveDiaryBtn").addEventListener("click", function() {
     const diaryEntry = document.getElementById("diaryEntry").value;
+    const timestamp = new Date().toLocaleString();
+    const entry = `${diaryEntry} - ${timestamp}`;
     let diaryHistory = JSON.parse(localStorage.getItem("diaryHistory")) || [];
-    diaryHistory.push(diaryEntry);
+    diaryHistory.push(entry);
     localStorage.setItem("diaryHistory", JSON.stringify(diaryHistory));
     updateDiaryHistory();
 });
@@ -91,3 +110,45 @@ function updateFavoriteList() {
     });
 }
 updateFavoriteList();
+
+// Hàm yêu cầu mật khẩu
+function requestPassword(action) {
+    const password = prompt("Nhập mật khẩu để xác nhận:");
+    if (password === PASSWORD) {
+        action(); // Thực hiện hành động nếu mật khẩu đúng
+    } else {
+        alert("Mật khẩu không đúng.");
+    }
+}
+
+// Xóa lịch sử hoạt động
+document.getElementById("clearActivityHistoryBtn").addEventListener("click", function() {
+    requestPassword(function() {
+        localStorage.removeItem("activityHistory");
+        updateActivityHistory();
+    });
+});
+
+// Xóa điều mong muốn
+document.getElementById("clearWishChangeBtn").addEventListener("click", function() {
+    requestPassword(function() {
+        localStorage.removeItem("wishChange");
+        document.getElementById("savedWishChange").textContent = "Chưa có điều mong muốn nào.";
+    });
+});
+
+// Xóa nhật ký
+document.getElementById("clearDiaryHistoryBtn").addEventListener("click", function() {
+    requestPassword(function() {
+        localStorage.removeItem("diaryHistory");
+        updateDiaryHistory();
+    });
+});
+
+// Xóa danh sách yêu thích
+document.getElementById("clearFavoriteListBtn").addEventListener("click", function() {
+    requestPassword(function() {
+        localStorage.removeItem("favoriteList");
+        updateFavoriteList();
+    });
+});
