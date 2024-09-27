@@ -12,51 +12,51 @@
     </header>
     <nav>
         <ul>
-            <li><a href="#messages">Nơi tâm sự</a></li>
-            <li><a href="#random-idea">Mục chọn ngẫu nhiên</a></li>
-            <li><a href="#image-sharing">Chia sẻ hình ảnh</a></li>
-            <li><a href="#feelings">Điều làm bạn buồn</a></li>
-            <li><a href="#changes">Mong muốn thay đổi</a></li>
-            <li><a href="#dates">Lịch đi chơi & kỷ niệm</a></li>
+            <li><a href="#" onclick="showTab('messages')">Nơi tâm sự</a></li>
+            <li><a href="#" onclick="showTab('random-idea')">Mục chọn ngẫu nhiên</a></li>
+            <li><a href="#" onclick="showTab('image-sharing')">Chia sẻ hình ảnh</a></li>
+            <li><a href="#" onclick="showTab('feelings')">Điều làm bạn buồn</a></li>
+            <li><a href="#" onclick="showTab('changes')">Mong muốn thay đổi</a></li>
+            <li><a href="#" onclick="showTab('dates')">Lịch đi chơi & kỷ niệm</a></li>
         </ul>
     </nav>
     <main>
-        <section id="messages">
+        <div id="messages" class="tab">
             <h2>Nơi tâm sự</h2>
             <textarea id="messageInput" placeholder="Nhập lời nhắn của bạn"></textarea>
             <button onclick="sendMessage()">Gửi</button>
             <div id="messagesList"></div>
-        </section>
+        </div>
 
-        <section id="random-idea">
+        <div id="random-idea" class="tab" style="display:none;">
             <h2>Mục chọn ngẫu nhiên</h2>
             <button onclick="getRandomIdea()">Chọn ý tưởng</button>
             <p id="randomOutput"></p>
-        </section>
+        </div>
 
-        <section id="image-sharing">
+        <div id="image-sharing" class="tab" style="display:none;">
             <h2>Chia sẻ hình ảnh</h2>
             <input type="file" id="imageInput" accept="image/*">
             <div id="imagePreview"></div>
-        </section>
+        </div>
 
-        <section id="feelings">
+        <div id="feelings" class="tab" style="display:none;">
             <h2>Điều làm bạn buồn</h2>
             <textarea id="feelingsInput" placeholder="Nhập điều làm bạn buồn"></textarea>
             <button onclick="sendFeelings()">Gửi</button>
-        </section>
+        </div>
 
-        <section id="changes">
+        <div id="changes" class="tab" style="display:none;">
             <h2>Mong muốn thay đổi</h2>
             <textarea id="changesInput" placeholder="Nhập điều bạn mong muốn thay đổi"></textarea>
             <button onclick="sendChanges()">Gửi</button>
-        </section>
+        </div>
 
-        <section id="dates">
+        <div id="dates" class="tab" style="display:none;">
             <h2>Lịch đi chơi & kỷ niệm</h2>
             <textarea id="datesInput" placeholder="Nhập lịch đi chơi hoặc kỷ niệm"></textarea>
             <button onclick="sendDate()">Gửi</button>
-        </section>
+        </div>
     </main>
     <footer>
         <p>© 2024 Couple Website</p>
